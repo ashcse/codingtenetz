@@ -1,0 +1,38 @@
+<div class="blogs-container">
+    <div  class="sidebar blogs-sidebar removeSidebar">
+        <div>
+            <div class="close-blogs-wrapper" (click)="onCloseSidebarClick()">
+            <!-- <i class="cross fa-solid fa-xmark"></i> -->
+            <i class="fa fa-times-circle" aria-hidden="true"></i>
+            </div>
+        </div>
+        <div>
+        <nav>
+            <ul>
+                <li><a href="#">Web Services</a></li>
+                <li><a href="#">Design Patterns</a></li>
+                <li><a href="#">Software Architecture</a></li>
+                <li><a href="#">System Design</a></li>
+                <li><a href="#">Microservices</a></li>
+                <li><a href="#">HTML CSS development</a></li>
+                <li><a href="#">Web hosting</a></li>
+            </ul>
+        </nav>
+    </div>
+    </div>
+    <div class="main">
+        <div *ngIf="showMoreEnabled" class="show-tech-control" (click)="showTechControlClick()">
+            <div class="show-tech-wrapper">
+                <i class="show-tech fas fas-duotone fa-bars"></i>
+            </div>
+            <div>
+                <h6>More blogs</h6>
+            </div>
+        </div>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi aliquid dignissimos numquam provident ad nobis earum recusandae commodi, itaque sapiente praesentium voluptatum accusamus animi odit ab. Amet voluptatem hic perspiciatis?</p>
+        <div class="intro">
+
+
+        </div>
+    </div>
+</div>

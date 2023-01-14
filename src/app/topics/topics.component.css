@@ -1,0 +1,58 @@
+ @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Bitter:ital,wght@0,300;1,400&family=Fredoka+One&display=swap');
+
+.topic-container {
+    display: flex;
+    align-items:initial;
+    align-content: space-around;
+    flex-direction: row;
+    padding: 40px 0px;
+}
+.main-topic-container {
+    padding: 130px 0px 0px 0px;
+}
+/* .main-topic-container h5 {
+    font-size: 25px;
+    text-transform: capitalize;
+    font-family: 'Acme', sans-serif;
+
+    } */
+
+    /* .main-topic-container p {
+        font-family: 'Lato', sans-serif;
+    } */
+
+.card .button {
+    border-radius: 15px;
+}
+
+.card-title {
+    text-align: center;
+}
+
+.card {
+    width: 18rem;
+    border-radius: 1.3rem;
+}
+
+.card i{
+    display: block;
+    font: 50px;
+    text-align: center;
+    color: rgb(238, 220, 220);
+}
+
+@media (max-width:800px) {
+
+    .card p{
+        display: none;
+    }
+
+    .topic-container {
+        flex-direction: column;
+        flex-wrap: inherit;
+    }
+}

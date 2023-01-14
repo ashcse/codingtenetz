@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500&family=Poppins:wght@300&display=swap');
+
+::-webkit-scrollbar {
+    width: 0.7rem;
+
+}
+
+::-webkit-scrollbar-track {
+background: rgb(177, 182, 201);
+border-radius:8px;
+margin-block:0.2rem;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(103, 119, 143);
+    border-radius: 8px;
+    border:0.15rem solid rgb(139, 149, 164)
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(91, 97, 106);
+    cursor:pointer;
+}
+
+.blogs-container{
+          display: flex;
+      flex-direction: row;
+      height: 100vh;
+    font-family: 'Playfair Display', serif;
+    /* background-color: rgb(226 228 232); */
+}
+
+.main {
+    width: 100vw;
+    height: 100vh;
+    padding: 1rem;
+}
+
+.sidebar {
+    background-color: rgb(83, 87, 88);
+    width: 300px;
+    padding: 0.8rem 2rem;
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    transition: transform 0.5 ease-in;
+    box-shadow: 0 4px 5px 4px rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+}
+
+.sidebar nav {
+    padding: 0px;
+}
+
+.sidebar nav ul {
+    padding-left: 0rem;
+}
+
+.sidebar nav ul li {
+    list-style: none;
+    font-size: 20px;
+    padding: 25px 0px;
+}
+
+.sidebar nav a {
+    text-decoration: none;
+    color:white;
+    font-family: 'Lato', sans-serif !important;
+}
+.sidebar nav a:hover {
+    text-decoration: none;
+    color:rgb(203, 187, 187);
+
+}
+
+.show-tech-control {
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+    width: 7rem;
+    color: #0e2c8fe3;
+}
+
+.show-tech-control div h6 {
+    color: #0e2c8fe3;
+    padding: 0.2rem;
+}
+
+.show-tech-control div h6:hover {
+    color: #114c9ae3;
+    padding: 0.2rem;
+    font-size: smaller !important;
+    font-weight: 900 !important;
+}
+svg:hover {
+    color: #114c9ae3;
+    height: 1rem;
+
+}
+
+.show-tech {
+    cursor: pointer;
+    position: absolute;
+    /* top:50px;
+    left:30px; */
+}
+
+.show-tech-wrapper {
+    width: 1.5rem;
+    padding: 0.2rem;
+}
+
+.close-blogs-wrapper svg {
+    height: 1.2rem;
+    color: white;
+}
+
+.removeSidebar {
+    transform: translate(-320px, 10px);
+    position:absolute;
+}
+/*
+@media (max-width:1700px) {
+.sidebar {
+    transform: translate(-224px, 10px);
+    position:absolute;
+    transition: 1s;
+}
+} */

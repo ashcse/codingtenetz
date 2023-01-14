@@ -1,0 +1,32 @@
+<nav class="shadow navbar navbar-dark bg-dark  navbar-expand-md">
+  <div  (window:resize)="onResize($event)"  class="container-fluid bg-dark">
+    <a class="navbar-brand" [routerLink]="['Home']"><img src="../../assets/NewLogoLight.png" style="width:100px" alt="logo"></a>
+    <button  *ngIf="!showClose"  class="navbar-toggler" type="button" (click)="toggleBtnCliock()"   data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+              aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div *ngIf="showClose">
+    <button  (click)="btnCloseClick()"  class="navbar-toggler" type="button"  data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span><i class="fa-solid fa-square-xmark"></i></span>
+    </button>
+  </div>
+    <div class="collapse navbar-collapse" #navbarExpanded id="navbarSupportedContent">
+      <ul class="navbar-nav mx-auto mb-2 mb-md-0 navbar-nav-dark">
+        <li class="nav-item" >
+          <a class="nav-link" routerLinkActive="active-class" [routerLinkActiveOptions]="{exact: true}"
+          data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          (click)="routerLinkClicked()" aria-current="page"[routerLink]="['/']">Home</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active-class">
+          <a class="nav-link" routerLinkActive="active-class" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" (click)="routerLinkClicked()" [routerLink]="['/blogs']">Blogs</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active-class">
+          <a class="nav-link" routerLinkActive="active-class" (click)="routerLinkClicked()" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" [routerLink]="['/contact']">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active-class" (click)="routerLinkClicked()" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" [routerLink]="['about']">About</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
