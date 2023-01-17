@@ -3,18 +3,32 @@ import { Routes, RouterModule } from '@angular/router';
 import { AboutComponent } from './about/about.component';
 import { BlogsComponent } from './blogs/blogs.component';
 import { ContactComponent } from './contact/contact.component';
+import { DesignPatternComponent } from './design-pattern/design-pattern.component';
 import { HomeComponent } from './home/home.component';
+import { HostingComponent } from './hosting/hosting.component';
 import { IntroductionComponent } from './introduction/introduction.component';
 import { RecipesComponent } from './recipes/recipes.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
+import { SoftwareArchitectureComponent } from './software-architecture/software-architecture.component';
+import { SystemDesignComponent } from './system-design/system-design.component';
+import { WebDevelopmentComponent } from './web-development/web-development.component';
+import { WebserviceComponent } from './webservice/webservice.component';
 
 
 const routes: Routes = [
-  {path: 'home', pathMatch: 'full', component: IntroductionComponent},
+  {path: 'home', pathMatch: 'full', component: HomeComponent},
 {path: 'blogs',pathMatch: 'full', component: BlogsComponent},
-{path: 'about',pathMatch: 'full', component: AboutComponent},
+{path: 'about',pathMatch: 'full', component: IntroductionComponent},
+{path: 'MoreAbout',pathMatch: 'full', component: AboutComponent},
 {path: 'contact', pathMatch: 'full', component: ContactComponent},
-{path: '**', component: IntroductionComponent},
+{path: 'design-pattern', pathMatch: 'full', component: DesignPatternComponent},
+{path: 'system-design', pathMatch: 'full', component: SystemDesignComponent},
+{path: 'soft-arch', pathMatch: 'full', component: SoftwareArchitectureComponent},
+{path: 'webservice', pathMatch: 'full', component: WebserviceComponent},
+{path: 'hosting', pathMatch: 'full', component: HostingComponent},
+{path: 'webdevelopment', pathMatch: 'full', component: WebDevelopmentComponent},
+
+{path: '**', component: HomeComponent},
 ];
 
 @NgModule({

@@ -18,6 +18,12 @@ import { ContactComponent } from './contact/contact.component';
 import { IntroductionComponent } from './introduction/introduction.component';
 import { TopicsComponent } from './topics/topics.component';
 import { AboutComponent } from './about/about.component';
+import { DesignPatternComponent } from './design-pattern/design-pattern.component';
+import { SystemDesignComponent } from './system-design/system-design.component';
+import { WebDevelopmentComponent } from './web-development/web-development.component';
+import { HostingComponent } from './hosting/hosting.component';
+import { SoftwareArchitectureComponent } from './software-architecture/software-architecture.component';
+import { WebserviceComponent } from './webservice/webservice.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +41,13 @@ import { AboutComponent } from './about/about.component';
     ContactComponent,
     IntroductionComponent,
     TopicsComponent,
-    AboutComponent
+    AboutComponent,
+    DesignPatternComponent,
+    SystemDesignComponent,
+    WebDevelopmentComponent,
+    HostingComponent,
+    SoftwareArchitectureComponent,
+    WebserviceComponent
   ],
   imports: [
     BrowserModule,
