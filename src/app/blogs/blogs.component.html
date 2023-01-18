@@ -1,36 +1,49 @@
 <div class="blogs-container">
-    <div  class="sidebar blogs-sidebar removeSidebar">
+    <!-- <div class="sidebar blogs-sidebar removeSidebar">
         <div>
-            <div class="close-blogs-wrapper" (click)="onCloseSidebarClick()">
-            <!-- <i class="cross fa-solid fa-xmark"></i> -->
-            <i class="fa fa-times-circle" aria-hidden="true"></i>
+            <div class="close-blogs-wrapper" (click)="onCloseSidebarClick()">                
+                <i class="fa fa-times-circle" aria-hidden="true"></i>
             </div>
         </div>
         <div>
-        <nav>
-            <ul>
-                <li><a [routerLink]="['/webservice']">Web Services</a></li>
-                <li><a [routerLink]="['/design-pattern']">Design Patterns</a></li>
-                <li><a [routerLink]="['/soft-arch']">Software Architecture</a></li>
-                <li><a [routerLink]="['/system-design']">System Design</a></li>                
-                <li><a [routerLink]="['/webdevelopment']">HTML CSS development</a></li>
-                <li><a [routerLink]="['/hosting']">Web hosting</a></li>
-            </ul>
-        </nav>
-    </div>
-    </div>
+            <nav>
+                <ul>
+                    <li><a [routerLink]="['/webservice']">Web Services</a></li>
+                    <li><a [routerLink]="['/design-pattern']">Design Patterns</a></li>
+                    <li><a [routerLink]="['/soft-arch']">Software Architecture</a></li>
+                    <li><a [routerLink]="['/system-design']">System Design</a></li>
+                    <li><a [routerLink]="['/webdevelopment']">HTML CSS development</a></li>
+                    <li><a [routerLink]="['/hosting']">Web hosting</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div> -->
     <div class="main">
-        <div *ngIf="showMoreEnabled" class="show-tech-control" (click)="showTechControlClick()">
+        <!-- <div *ngIf="showMoreEnabled" class="show-tech-control" (click)="showTechControlClick()">
             <div class="show-tech-wrapper">
                 <i class="show-tech fas fas-duotone fa-bars"></i>
             </div>
             <div>
                 <h6>More blogs</h6>
             </div>
-        </div>        
-        <div class="intro">
-
-
+        </div> -->
+        <div class="blogs-buttons">
+            <div class="blogs-buttons-container">
+                
+                    <button class="btn btn-primary m-1" [routerLink]="['/webservice']">Web Services</button>
+                
+                
+                    <button class="btn btn-primary m-1" [routerLink]="['/design-pattern']">Design Patterns</button>
+                
+                
+                    <button class="btn btn-primary m-1" [routerLink]="['/soft-arch']">Software Architecture</button>
+                
+                    <button class="btn btn-primary m-1" [routerLink]="['/system-design']">System Design</button>
+                
+                    <button class="btn btn-primary m-1" [routerLink]="['/webdevelopment']">HTML/CSS JAVASCRIPT</button>
+                
+                    <button class="btn btn-primary m-1" [routerLink]="['/hosting']">Web Hosting</button>                
+            </div>
         </div>
     </div>
 </div>

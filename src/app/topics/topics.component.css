@@ -36,6 +36,7 @@
 .card {
     width: 18rem;
     border-radius: 1.3rem;
+    box-shadow: 0 4px 5px 4px rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
 }
 
 .card i{

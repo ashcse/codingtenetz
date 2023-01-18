@@ -4,7 +4,8 @@
 
 body {
     /* background-color: #f1f1f1 !important; */
-    background-color: rgb(226 228 232)!important;
+    /* background-color: rgb(226 228 232) !important; */
+    background-color:white !important;
 }
 
 h2 {
@@ -12,18 +13,45 @@ h2 {
     text-transform: capitalize;
     font-family: 'Lato', sans-serif !important;
     font-weight: 900 !important;
-    }
-
+}
 
 h6 {
     font-family: 'Lato', sans-serif !important;
-        font-size:x-small !important;
-        font-weight:300  !important;
+    font-size: x-small !important;
+    font-weight: 300 !important;
 }
 
+p {
+    font-family: 'Lato', sans-serif !important;
+    font-size: large !important;
+    font-weight: 400 !important;
+}
 
-    p {
-        font-family: 'Lato', sans-serif !important;
-        font-size:large !important;
-        font-weight: 400     !important;
-    }
+.btn {
+    border-radius: 2rem !important;
+    box-shadow: 0 4px 5px 4px rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+}
+
+.btn:hover {
+    border-radius: 2rem;
+    background-color: rgb(179, 197, 214) !important;
+    color: black !important;
+    transition: 1s !important;
+}
+
+.explanation {    
+    font-size: 1.5rem !important;
+    font-weight: 500 !important;
+}
+
+.back-wrapper {
+    padding:2rem 0rem 0rem 4rem;
+}
+
+.intro{    
+    display: flex;
+    align-items: center;
+    align-content: space-around;
+    max-width: 95%;
+    margin:2rem 0rem;
+}
