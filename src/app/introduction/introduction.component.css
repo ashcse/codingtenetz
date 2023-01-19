@@ -12,8 +12,7 @@
     box-shadow: 0 4px 5px 4px rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
 }
 
-.intro-text {
-    width:500px;
+.intro-text {    
     padding-left: 50px;
 }
 
@@ -28,8 +27,7 @@ font-family: 'Acme', sans-serif;
     font-size:large;
 }
 
-.get-in-touch {
-    width: 100%;
+.get-in-touch {    
     height: 300px;
     background-color: #e9e7e7;
     display: flex;
@@ -82,4 +80,8 @@ font-family: 'Acme', sans-serif;
     .myPic {
        display: none;
     }
+}
+
+.more-about-me-btn-container {
+    padding-left: 15vw;
 }

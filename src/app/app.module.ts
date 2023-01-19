@@ -24,6 +24,10 @@ import { WebDevelopmentComponent } from './web-development/web-development.compo
 import { HostingComponent } from './hosting/hosting.component';
 import { SoftwareArchitectureComponent } from './software-architecture/software-architecture.component';
 import { WebserviceComponent } from './webservice/webservice.component';
+import { WebDevelopmentProjectsComponent } from './web-development-projects/web-development-projects.component';
+import { OopComponent } from './oop/oop.component';
+import { SystemDesignProjectsComponent } from './system-design-projects/system-design-projects.component';
+import { WebServicesDevelopmentComponent } from './web-services-development/web-services-development.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +51,11 @@ import { WebserviceComponent } from './webservice/webservice.component';
     WebDevelopmentComponent,
     HostingComponent,
     SoftwareArchitectureComponent,
-    WebserviceComponent
+    WebserviceComponent,
+    WebDevelopmentProjectsComponent,
+    OopComponent,    
+    SystemDesignProjectsComponent,
+    WebServicesDevelopmentComponent
   ],
   imports: [
     BrowserModule,
