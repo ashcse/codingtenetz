@@ -2,23 +2,54 @@
     <div class="mb-5 mt-5">
         <h3 class="contact-header" >Contact me for any project work or any other enquiry!</h3>
     </div>
-    <div class="contact-container">
-        <form class="contact-form">
+    <div>
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmitClick()" class="contact-form">
+            
+            <div class="input-container">
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input type="email" formControlName="emailAddress"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <span class="error text-danger" *ngIf="emailAddress.invalid && emailAddress.touched">Email is invalid</span>
                 <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
             </div>
             <div class="mb-3">
                 <label for="exampleInputPhone" class="form-label">Subject</label>
-                <input type="tel" class="form-control" id="exampleInputPhone" aria-describedby="phoneHelp">
+                <input type="text" formControlName="description" class="form-control" id="exampleInputPhone" aria-describedby="phoneHelp">
+                <span class="error text-danger" *ngIf="description.invalid && description.touched">Please enter description!</span>
+                
                 <div id="phoneHelp" class="form-text">Please share, What can I help you about.</div>
             </div>
             <div class="mb-3 form-check">
                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
                 <label class="form-check-label" for="exampleCheck1">Check me out</label>
             </div>
-            <button type="submit" class="btn btn-secondary">Submit</button>
+        </div>
+        <div>
+            <button [disabled]="emailAddress.invalid || description.invalid" type="submit" class="btn btn-secondary">Submit</button>
+        </div>
         </form>
     </div>
 </div>
+
+<!-- Button trigger modal -->
+<button id="modal-btn" type="button" [hidden]="true" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Launch demo modal
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel"></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Thanks for reaching out to us, We will get back to you!
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>         
+        </div>
+      </div>
+    </div>
+  </div>

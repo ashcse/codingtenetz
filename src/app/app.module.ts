@@ -1,10 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {HttpClientModule, HttpInterceptor} from '@angular/common/http'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
 import { RecipesComponent } from './recipes/recipes.component';
 import { RecipeListComponent } from './recipes/recipe-list/recipe-list.component';
@@ -28,6 +29,8 @@ import { WebDevelopmentProjectsComponent } from './web-development-projects/web-
 import { OopComponent } from './oop/oop.component';
 import { SystemDesignProjectsComponent } from './system-design-projects/system-design-projects.component';
 import { WebServicesDevelopmentComponent } from './web-services-development/web-services-development.component';
+import { SharedModule } from './common/shared.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -55,12 +58,16 @@ import { WebServicesDevelopmentComponent } from './web-services-development/web-
     WebDevelopmentProjectsComponent,
     OopComponent,    
     SystemDesignProjectsComponent,
-    WebServicesDevelopmentComponent
+    WebServicesDevelopmentComponent    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,    
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
