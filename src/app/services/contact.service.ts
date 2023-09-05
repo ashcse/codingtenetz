@@ -28,7 +28,7 @@ export class ContactService {
       })
     };
 
-    const url = 'http://localhost:8000/api/vehicle/';
+    const url = 'https://codingtenetz.com/matrix/api//vehicle/';
     const url_enquiry = 'http://localhost:8000/api/enquiry/';
 
     return this.httpClient.post(url_enquiry, enquiry, httpOptions);

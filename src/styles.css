@@ -1,6 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@1,300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Acme&family=Bitter:ital,wght@0,300;1,400&family=Fredoka+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orelega+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500&family=Poppins:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orelega+One&family=Raleway:wght@500&display=swap');
+
+
+
 
 body {
     /* background-color: #f1f1f1 !important; */
@@ -54,4 +60,42 @@ p {
     align-content: space-around;
     max-width: 95%;
     margin:2rem 0rem;
+}
+
+
+.blog-container h1 {
+    color:rgb(10, 84, 10);
+}
+
+
+.blog-title-fonts {
+    font-family: 'Raleway', sans-serif !important;
+}
+
+.blog-heading-fonts {
+    padding:0.5rem;
+    background-color: rgb(236, 242, 249);
+    font-family: 'Raleway', sans-serif !important;
+}
+
+.blog-container h2{
+    padding:0.5rem;
+    background-color: rgb(236, 242, 249);
+    font-family: 'Raleway', sans-serif !important;
+    margin-top: 0.4rem;
+}
+
+/*
+@media (max-width:1700px) {
+.sidebar {
+    transform: translate(-224px, 10px);
+    position:absolute;
+    transition: 1s;
+}
+} */
+
+
+.blog-container > p {   
+font-family: 'Raleway', sans-serif !important;
+
 }

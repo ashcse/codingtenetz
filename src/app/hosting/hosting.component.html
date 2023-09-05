@@ -1,3 +1,163 @@
 <div class="back-wrapper">
     <a [routerLink]="['/blogs']">Back</a>
-   </div>
+</div>
+
+<div class="blog-container">
+    <h1 class="blog-title-fonts"> Deployment Guide for Django rest framework application</h1>
+
+    <h2>Overview </h2>
+
+    <p>
+        I’m new to DRF (Django Rest Framework) and Python. I have been working on DRF for past few weeks, while
+        deploying my hobby project (which is RESTful services) on GoDaddy Shared hosting I was struggling to
+        find a
+        comprehensive deployment guide for my requirement. In this blogpost I’ll cover what are the necessary
+        steps one
+        needs to take while doing fresh deployment to similar requirements.
+    </p>
+    <h2>Requirement</h2>
+    <p>
+        I have python development setup in my machine and I use python virtual environment to install the
+        required
+        package locally. For my django RESTful services I have MySql as database. I use windows development
+        environment
+        with gitbash as terminal. My requirement is to host Django RESTful web services on GoDaddy shared Linux
+        hosting
+        account. I want my web services to be available from an Angular website hosted in my domain. This
+        deployment
+        guide can work for anyone who wants to serve web services to a different domain or hosting or any client
+        application. Only thing which will be different will be enabling cors header for a different domain url.
+    </p>
+    <p>
+        I use GoDaddy Linux shared hosting which supports python and provides me python virtual environment
+        which I can
+        use to install django and other dependencies. I use GoDaddy hosting as <strong> PaaS </strong> hosting environment
+        (Platform as a service). Advantage of such hosting is that cloud provider takes care of setting up reverse proxy, load balancer
+        etc. Paas is a better option for beginners and works perfectly for my needs as of now.
+    </p>
+    <h2>Let's begin the deployment </h2>
+    <p>First thing to check if web service is running fine locally by launching gitbash (or your preferred
+        terminal) and enter command <strong> python manage.py runserver</strong>. by default DRF service will be launched at https://localhost:8000 port </p>
+    <h2>MySql DB setup</h2>
+        <p>Login to go daddy CPanel and setup the MySql database by clicking on Databases => MySQL Databases. It
+        shows Create New Database screen. Enter the database name which should be same as in the connection string of
+        RESTful  service used in development env. </p>
+    <p>Refer the database section in DRF setting file. Same DB setting will be used in the hosting env.</p>
+
+    <p>DATABASES = &#123;
+        'default'&nbsp;:&nbsp; &#123; <br>
+        'ENGINE': 'django.db.backends.mysql',<br>
+        'NAME': 'servicedb', <br>
+        'USER': 'user_name', <br>
+        'PASSWORD': 'password', <br>
+        'HOST': '127.0.0.1', <br>
+        'PORT': '3306', <br>
+        &#125;&nbsp;
+        &#125;
+    </p>
+
+    <p>Add a user with same name and password as in the connection string in setting.py file. </p>
+
+    <p>Once python DRF services are hosted it will connect to this DB. </p>
+
+    <h2>Setting.py file</h2>
+
+    <p>Make sure secrete key is added in the setting file as production secrete.</p>
+
+
+    <h2>Requirements.txt</h2>
+
+    <p>It is good practice to have a requirements.txt file crated which you can use in the hosting server to
+        install all
+        the dependent packages. Following is my requirements.txt content. To use requirements.txt use command <strong>pip install -r requirements.txt</strong>
+    </p>
+    <p>
+        django&#62;&#61;4.0.0,&#60;4.1.0<br/>
+            djangorestframework <br/>
+            pyyaml<br/>
+            requests<br/>
+            django-cors-headers<br/>
+            PyMySQL==1.0.2<br/>
+            pytz==2022.7.1<br/>
+            mysqlclient<br/>
+            sqlparse==0.4.3<br/>
+            tzdata==2022.7<br/>
+    </p>
+
+    <p>Check following directives in the setting.py file </p>
+    <p><i class="fa fa-check" aria-hidden="true"></i>&nbsp;&nbsp; Debug = false</p>
+    <p><i class="fa fa-check" aria-hidden="true"></i>&nbsp;&nbsp;STATIC_ROOT = BASE_DIR / "static" </p>
+
+    <p><i class="fa fa-check" aria-hidden="true"></i>&nbsp;&nbsp;ALLOWED_HOSTS value to domains from where API
+        will be
+        used </p>
+
+    <p><i class="fa fa-check" aria-hidden="true"></i>&nbsp;&nbsp;Templates folder setting is needed because
+        admin panel needs proper UI HTML templates </p>
+
+    <p><i class="fa fa-check" aria-hidden="true"></i>&nbsp;&nbsp;STATIC_URL = 'static &#x2f;' </p>
+
+    <p><i class="fa fa-check" aria-hidden="true"></i>&nbsp;&nbsp;STATIC_ROOT =
+        '&#x2f;home&#x2f;&#60;cpanlloginname&#62;&#x2f;public_html&#x2f;static' </p>
+
+    <p>CORS_ALLOWED_ORIGINS = [
+        'https:&#x2f;&#x2f;&#60;client domain name&#62;.com', 'https:&#x2f;&#x2f;www.&#60;client domain
+        name&#62;.com' ]</p>            
+    <h2>Set up python app</h2>
+    <p>Following steps illustrates how a python applicatioin can be created, which will create a virtual
+        environment. Once virtual environment
+        Is created copy command to activate virual env within terminal.
+    </p>
+    <p>1.&nbsp;&nbsp; Go to Software under CPanel and click on <strong>Setup Python App</strong>.</p>
+    <p>2.&nbsp;&nbsp;Click on Create Application and select latest python version. Specify <strong>Application Root</strong> and
+        <strong>Application URL</strong>.</p>
+
+    <p>&nbsp;&nbsp;Above step is needed to help Django setup a virtual environment directory for your project. Therefore
+        because of that following two things happen:</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.1.&nbsp;&nbsp; Application root (folder where you need to copy
+        project files from your repo) will create a folder with given name (same name entered in Application Root field) inside home location in CPanel and
+        also will create a virtual environment directory with same name under <strong>virtualenv</strong> folder in home
+        location. This will setup the virtual environment directory which you can use for your Django application. </p>
+
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.2.&nbsp;&nbsp;Application URL what entered is simply name of the
+        service url which will be appended to your domain name. Hence the API home url becomes
+        https://domain/&#60;Application URL value&#62; </p>
+    <h2>Deploy project files</h2>
+    <p>3.&nbsp;&nbsp; After doing necessary changes in setting file zip the API project and copy to CPanel. </p>
+    <p>4. &nbsp;&nbsp;Unzip the copied files and then paste files inside Root directory created at home location
+        created just now by 2.1 point. </p>
+
+    <p>5. &nbsp;&nbsp;Go to the CPanel => Software => python app and edit the new python app created for hosting
+        . On click on edit at the top in the edit setting page there will be command to activate virtual env and change directory command to 
+        go to Applicatioin Root folder. Copy the command (simply clicking will copy the command).</p>
+        <p>From the top copy command to go to virtual environment. </p>
+    
+    <P>Click on the virtual environment command and it will click automatically copy the command which you need
+        to paste on the teminal (CPanel => Advanced => Terminal).</P>
+    <P>Command to enter on terminal will be like <b>/home/&#60;cpanel_username&#62;/virtualenv/&#60;Application Root dir&#62;/3.9/bin/activate
+            && cd /home/&#60;cpanel_username&#62;/&#60;Application Root dir&#62;</b> </P>
+
+   <p>Once command is fired, virtual environment will be activated and terminal's current directory will be Application Root dir</p>
+   <p>Install dependencies by <strong>pip install -r requirements.txt</strong> ( unzipped files are already at the root location, keep requirements.txt also there).</p>
+   <p>wait until all dependencies are not installed. After that upgrade pip package too.</p>
+   <p>6. &nbsp;&nbsp;right click on passenger_wsgy.py file and keep only following code there <br/><br/>
+    import os<br/>
+    import sys<br/>            
+    from master.wsgi import application</p>
+    <p>7. &nbsp;&nbsp;Deployment is almost done. Setup static files by following steps</p>
+    <p>8. &nbsp;&nbsp;It is good idea to have a superuser created so that you can login to admin panel provided by Django and create products or model objects, create users, set permissions etc. 
+
+        Before creating super user copy the static files which have CSS and HTML templates used by DRF to show admin panel and provide RESTful service a good UI interface for interacting. </p>
+        <p>public_html directory is the location where css/html files need to be copied. Webites hosted use this location for static content</p>
+
+     <p>9. &nbsp;&nbsp;Create a directory under public_html with <strong>Application Root</strong>name ( name which was given in point no 2). Under the root name folder create another directoiry named <strong>static</strong>. This will serve CSS and template files for Admin panel and RESTful service UI. </p>
+     <p>10. &nbsp;&nbsp;Copy Static files from locally running DRF service in VSCode. Following steps to get static files from DRF services development env locally on your machine. </p>
+     <p>    &nbsp;&nbsp;&nbsp;&nbsp; 10.1 Expand virtual env folder which is created in local machine. Go to <strong> Lib => Django => Contrib => Admin</strong>
+            directory. This directory is created by Django development environment to download static files while doing development. Entire Admin folder needs to be copied to directory created in point #9.
+     </p>
+     <p>  &nbsp;&nbsp;With the above steps DFR service is hosted now. Go to Setup Python App and restart the service</p>
+     <p>After service restarted Django RESTful serivce should be running on your server :) </p>
+     <h3>Further reading</h3>
+     <p>For further reading go through the Django Rest Framework official documentation https://www.django-rest-framework.org/, which helped me alot while doing my development.</p>
+
+    </div>

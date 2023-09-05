@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {HttpClientModule, HttpInterceptor} from '@angular/common/http'
+import { HttpClientModule, HTTP_INTERCEPTORS, HttpInterceptor } from '@angular/common/http'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -31,6 +31,14 @@ import { SystemDesignProjectsComponent } from './system-design-projects/system-d
 import { WebServicesDevelopmentComponent } from './web-services-development/web-services-development.component';
 import { SharedModule } from './common/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { VehicleComponent } from './vehicle/vehicle.component';
+import { LoginService } from './services/login.service';
+import { HttpInterceptorService } from './services/interceptors/http-interceptor.service';
+import { BillingComponent } from './billing/billing.component';
+import { TenderComponent } from './tender/tender.component';
 
 @NgModule({
   declarations: [
@@ -56,20 +64,32 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     SoftwareArchitectureComponent,
     WebserviceComponent,
     WebDevelopmentProjectsComponent,
-    OopComponent,    
+    OopComponent,
     SystemDesignProjectsComponent,
-    WebServicesDevelopmentComponent    
+    WebServicesDevelopmentComponent,
+    LoginComponent,
+    RegisterComponent,
+    ForgotPasswordComponent,
+    VehicleComponent,
+    BillingComponent,
+    TenderComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule,    
+    HttpClientModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
     SharedModule
   ],
-  providers: [],
+  providers: [LoginService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpInterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

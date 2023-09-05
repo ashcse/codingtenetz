@@ -1,0 +1,21 @@
+<div class="login-container">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmitClick()" class="contact-form">
+    <div class="login-control-container">
+      <div class="mb-3">
+        <label for="userName" class="form-label">User Name</label>
+        <input type="text" formControlName="userName" class="form-control" id="userName"
+          aria-describedby="userNameHelp">
+        <span class="error text-danger" *ngIf="userName.invalid && userName.touched">Please enter user name!</span>
+        <div id="userNameHelp" class="form-text">Please enter the user name.</div>
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" formControlName="password" class="form-control" id="password"
+          aria-describedby="passwordHelp">
+        <span class="error text-danger" *ngIf="password.invalid && password.touched">Please enter password!</span>
+        <div id="passwordHelp" class="form-text">Please enter the password.</div>
+      </div>            
+        <button [disabled]="userName.invalid || password.invalid" type="submit" class="btn-login btn-primary">Login</button>
+    </div>    
+  </form>
+</div>

@@ -32,12 +32,13 @@
 </div>
 
 <!-- Button trigger modal -->
-<button id="modal-btn" type="button" [hidden]="true" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+<button id="modal-btn" type="button"  
+  [hidden]="true" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
     Launch demo modal
   </button>
   
   <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">

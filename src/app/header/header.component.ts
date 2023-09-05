@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild, ViewChildren, ElementRef } from '@angular/core';
+import { CookieService } from '../services/cookie.service';
 
 @Component({
   selector: 'app-header',
@@ -8,17 +9,16 @@ import { Component, OnInit, ViewChild, ViewChildren, ElementRef } from '@angular
 export class HeaderComponent implements OnInit {
 
   @ViewChild('navbarExpanded') navbarContainer: ElementRef;
-  constructor() { }
+  constructor(private cookieService: CookieService) { }
 
   public showClose: boolean = false;
-  public showCloseButton():boolean {
+  public showCloseButton(): boolean {
     console.log('showCloseButton Called');
-    if(this.navbarContainer && this.navbarContainer.nativeElement.classList.contains('show'))
-    {
+    if (this.navbarContainer && this.navbarContainer.nativeElement.classList.contains('show')) {
       alert('has class');
       return true;
     }
-    else{
+    else {
       return false;
     }
   }
@@ -39,11 +39,18 @@ export class HeaderComponent implements OnInit {
   }
 
   public onResize(args) {
-   this.showClose = false;
-   console.log(this.navbarContainer.nativeElement);
-   if(this.navbarContainer.nativeElement.classList.contains('show')){
-    this.navbarContainer.nativeElement.classList.remove('show');
-   }
+    this.showClose = false;
+    console.log(this.navbarContainer.nativeElement);
+    if (this.navbarContainer.nativeElement.classList.contains('show')) {
+      this.navbarContainer.nativeElement.classList.remove('show');
+    }
   }
+
+  public logout(){
+    this.cookieService.logout();
+    document.getElementById("modal-btn-header").click();
+  }
+
+  get userName() { return this.cookieService.getUserName(); }
 
 }

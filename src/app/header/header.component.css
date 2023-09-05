@@ -51,3 +51,10 @@ background-color: rgb(35, 41, 48) !important; */
     color:  rgb(130, 226, 111) !important;
 }
 
+.btn-logout{
+    color: red
+}
+
+.btn-logout:hover{
+    color: rgb(114, 145, 114);    
+}

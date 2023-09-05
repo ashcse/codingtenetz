@@ -17,6 +17,11 @@ import { WebDevelopmentProjectsComponent } from './web-development-projects/web-
 import { WebDevelopmentComponent } from './web-development/web-development.component';
 import { WebServicesDevelopmentComponent } from './web-services-development/web-services-development.component';
 import { WebserviceComponent } from './webservice/webservice.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { BillingComponent } from './billing/billing.component';
+import { TenderComponent } from './tender/tender.component';
 
 
 const routes: Routes = [
@@ -35,6 +40,11 @@ const routes: Routes = [
 {path: 'web-dev', pathMatch:'full', component: WebDevelopmentProjectsComponent},
 {path: 'sys-design', pathMatch:'full', component: SystemDesignProjectsComponent},
 {path: 'web-service-dev', pathMatch:'full', component: WebServicesDevelopmentComponent},
+{path: 'login', pathMatch:'full', component: LoginComponent},
+{path: 'register', pathMatch:'full', component: RegisterComponent},
+{path: 'forgot-pwd', pathMatch:'full', component: ForgotPasswordComponent},
+{path: 'billing', pathMatch:'full', component: BillingComponent},
+{path: 'tenders', pathMatch:'full', component: TenderComponent},
 {path: '**', component: HomeComponent},
 ];
 

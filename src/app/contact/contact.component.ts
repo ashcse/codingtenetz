@@ -27,9 +27,8 @@ export class ContactComponent implements OnInit {
   public contactForm: FormGroup;
 
   public onSubmitClick(): void {
-
     this.spinnerService.setSpinnerValue(true);
-
+    
     const emailAddr = this.contactForm.value.emailAddress;
     const descr = this.contactForm.value.description;
 
