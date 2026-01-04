@@ -9,13 +9,13 @@
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Email address</label>
                 <input type="email" formControlName="emailAddress"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                <span class="error text-danger" *ngIf="emailAddress.invalid && emailAddress.touched">Email is invalid</span>
+                <span class="error text-danger" *ngIf="emailAddress?.invalid && emailAddress?.touched">Email is invalid</span>
                 <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
             </div>
             <div class="mb-3">
                 <label for="exampleInputPhone" class="form-label">Subject</label>
                 <input type="text" formControlName="description" class="form-control" id="exampleInputPhone" aria-describedby="phoneHelp">
-                <span class="error text-danger" *ngIf="description.invalid && description.touched">Please enter description!</span>
+                <span class="error text-danger" *ngIf="description?.invalid && description?.touched">Please enter description!</span>
                 
                 <div id="phoneHelp" class="form-text">Please share, What can I help you about.</div>
             </div>
@@ -25,7 +25,7 @@
             </div>
         </div>
         <div>
-            <button [disabled]="emailAddress.invalid || description.invalid" type="submit" class="btn btn-secondary">Submit</button>
+            <button [disabled]="emailAddress?.invalid || description?.invalid" type="submit" class="btn btn-secondary">Submit</button>
         </div>
         </form>
     </div>

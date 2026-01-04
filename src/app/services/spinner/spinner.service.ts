@@ -6,32 +6,32 @@ import { BehaviorSubject, Observable } from 'rxjs';
 })
 export class SpinnerService {
 
-  public callbackFunction: Function;
+  public callbackFunction: Function | undefined;
   constructor() { }
 
-  private completedFlag = new BehaviorSubject<boolean>(null);
+  private completedFlag = new BehaviorSubject<boolean | null>(null);
   completedFlagSource = this.completedFlag.asObservable();
 
-  private completedFlagText = new BehaviorSubject<string>(null);
+  private completedFlagText = new BehaviorSubject<string | null>(null);
   completedFlagTextSource = this.completedFlagText.asObservable();
 
-  private showCancelButton = new BehaviorSubject<boolean>(null);
+  private showCancelButton = new BehaviorSubject<boolean | null>(null);
   showCancelButtonSource = this.showCancelButton.asObservable();
 
 
-  public setSpinnerValue(flag: boolean) {
-    this.completedFlag.next(flag)
+  public setSpinnerValue(flag: boolean): void {
+    this.completedFlag.next(flag);
   }
 
-  public getSpinnerValue(): Observable<boolean> {
+  public getSpinnerValue(): Observable<boolean | null> {
     return this.completedFlag;
   }
 
-  public setSpinnerText(text: string) {
+  public setSpinnerText(text: string): void {
     this.completedFlagText.next(text);
   }
 
-  public setCancelCallbackMethod(method:Function) {
+  public setCancelCallbackMethod(method: Function): void {
     this.callbackFunction = method;
   }
 
