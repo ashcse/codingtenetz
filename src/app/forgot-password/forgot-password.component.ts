@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { tap, catchError } from 'rxjs/operators';
 import { VehicleService } from '../services/vehicle.service';
 import { SpinnerService } from '../services/spinner/spinner.service';
 
@@ -17,12 +18,18 @@ export class ForgotPasswordComponent implements OnInit {
   }
 
   public getVehicles(): Observable<any> {    
-    this.vehicleService.getVehicles().subscribe(() => {
-            
-       this.spinnerService.setSpinnerValue(false);
-     },
-       (error) => {
-         })
-    return null;
+    return this.vehicleService.getVehicles().pipe(
+      tap({
+        next: () => {
+          this.spinnerService.setSpinnerValue(false);
+        },
+        error: (error) => {
+          console.error('Error fetching vehicles:', error);
+        },
+        complete: () => {
+          console.log('Vehicles loaded successfully');
+        }
+      })
+    );
   }
 }

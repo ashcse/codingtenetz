@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ContactService } from '../services/contact.service';
-import { FormGroup, FormControl, FormBuilder, Validator, Validators } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { enquiryInfo } from '../models/enquiry';
 import { SpinnerService } from '../services/spinner/spinner.service';
 
@@ -11,6 +11,9 @@ import { SpinnerService } from '../services/spinner/spinner.service';
 })
 export class ContactComponent implements OnInit {
 
+  public contactForm: FormGroup;
+  public errorMessage: string = '';
+
   constructor(private contactService: ContactService, private formBuilder: FormBuilder,
     private spinnerService: SpinnerService) {
     this.contactForm = this.formBuilder.group({
@@ -19,12 +22,8 @@ export class ContactComponent implements OnInit {
     });
   }
 
-  public errorMessage: string;
-
   ngOnInit(): void {
   }
-
-  public contactForm: FormGroup;
 
   public onSubmitClick(): void {
     this.spinnerService.setSpinnerValue(true);
@@ -40,7 +39,10 @@ export class ContactComponent implements OnInit {
     this.contactService.addEnquiry(enquiry).subscribe(() => {
      this.contactForm.reset();
      
-     document.getElementById("modal-btn").click();
+     const modalBtn = document.getElementById("modal-btn");
+     if (modalBtn) {
+       modalBtn.click();
+     }
            
       this.spinnerService.setSpinnerValue(false);
     },

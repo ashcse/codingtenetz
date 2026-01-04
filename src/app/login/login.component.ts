@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public errorMessage: string;
+  //public errorMessage: string | null;
 
   public onSubmitClick(): void {
     this.spinnerService.setSpinnerValue(true);
@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
       this.spinnerService.setSpinnerValue(false);
     },
       (error) => {
-        this.errorMessage = 'Error while logging in, please try later!';
+        //this.errorMessage = 'Error while logging in, please try later!';
       })
   }
 

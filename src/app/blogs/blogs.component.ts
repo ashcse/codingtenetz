@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-blogs',
@@ -6,32 +6,34 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./blogs.component.css']
 })
 export class BlogsComponent implements OnInit {
+  
+  @ViewChild('blogsSidebar') blogsSidebar: ElementRef | undefined;
+
+  public showMoreEnabled = true;
+  public isSidebarHidden = false;
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  public showMoreEnabled = true;
-
-  public showTechControlClick(){
-    document.querySelector('.blogs-sidebar').classList.toggle('removeSidebar');
-    if(document.querySelector('.blogs-sidebar').classList.contains('removeSidebar')){
-      this.showMoreEnabled = true;
+  private toggleSidebar(): void {
+    if (!this.blogsSidebar?.nativeElement) {
+      console.warn('Sidebar element not found');
+      return;
     }
-    else{
-      this.showMoreEnabled = false;
-    }
+    
+    this.blogsSidebar.nativeElement.classList.toggle('removeSidebar');
+    this.isSidebarHidden = this.blogsSidebar.nativeElement.classList.contains('removeSidebar');
+    this.showMoreEnabled = this.isSidebarHidden;
   }
 
-  public onCloseSidebarClick() {
-    document.querySelector('.blogs-sidebar').classList.toggle('removeSidebar');
-    if(document.querySelector('.blogs-sidebar').classList.contains('removeSidebar')){
-      this.showMoreEnabled = true;
-    }
-    else{
-      this.showMoreEnabled = false;
-    }
+  public showTechControlClick(): void {
+    this.toggleSidebar();
+  }
+
+  public onCloseSidebarClick(): void {
+    this.toggleSidebar();
   }
 
 }

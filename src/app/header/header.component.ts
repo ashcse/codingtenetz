@@ -8,7 +8,7 @@ import { CookieService } from '../services/cookie.service';
 })
 export class HeaderComponent implements OnInit {
 
-  @ViewChild('navbarExpanded') navbarContainer: ElementRef;
+  @ViewChild('navbarExpanded') navbarContainer: ElementRef | undefined;
   constructor(private cookieService: CookieService) { }
 
   public showClose: boolean = false;
@@ -38,17 +38,17 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public onResize(args) {
+  public onResize(args: any) {
     this.showClose = false;
-    console.log(this.navbarContainer.nativeElement);
-    if (this.navbarContainer.nativeElement.classList.contains('show')) {
+    console.log(this.navbarContainer?.nativeElement);
+    if (this.navbarContainer?.nativeElement.classList.contains('show')) {
       this.navbarContainer.nativeElement.classList.remove('show');
     }
   }
 
   public logout(){
     this.cookieService.logout();
-    document.getElementById("modal-btn-header").click();
+    document.getElementById("modal-btn-header")?.click();
   }
 
   get userName() { return this.cookieService.getUserName(); }
